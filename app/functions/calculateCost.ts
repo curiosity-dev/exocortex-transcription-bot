@@ -1,8 +1,7 @@
 import { OPENAI_PRICES } from './constants'
 
-export function calculateWhisperCost(chunkCount: number): number {
-  const estimatedMinutes = chunkCount * 5
-  return estimatedMinutes * OPENAI_PRICES.WHISPER
+export function calculateWhisperCost(durationMinutes: number): number {
+  return durationMinutes * OPENAI_PRICES.WHISPER
 }
 
 export function calculateGPT4Cost(tokens: number): number {

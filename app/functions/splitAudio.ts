@@ -4,6 +4,16 @@ import path from 'node:path'
 
 const CHUNK_SIZE = 5 * 1024 * 1024 // 5MB в байтах
 
+// Делаем функцию экспортируемой
+export async function getAudioDuration(filepath: string): Promise<number> {
+  return new Promise((resolve, reject) => {
+    ffmpeg.ffprobe(filepath, (err, metadata) => {
+      if (err) return reject(err)
+      resolve(metadata.format.duration || 0)
+    })
+  })
+}
+
 export async function splitAudioIfNeeded(inputPath: string): Promise<string[]> {
   const stats = fs.statSync(inputPath)
   if (stats.size <= CHUNK_SIZE) {
@@ -34,13 +44,4 @@ export async function splitAudioIfNeeded(inputPath: string): Promise<string[]> {
   }
 
   return outputPaths
-}
-
-function getAudioDuration(filepath: string): Promise<number> {
-  return new Promise((resolve, reject) => {
-    ffmpeg.ffprobe(filepath, (err, metadata) => {
-      if (err) return reject(err)
-      resolve(metadata.format.duration || 0)
-    })
-  })
 }

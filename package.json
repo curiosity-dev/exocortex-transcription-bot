@@ -3,9 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --exec bun app/index.ts",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "dev": "nodemon --exec bun app/index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
