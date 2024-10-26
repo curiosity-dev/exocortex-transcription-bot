@@ -1,0 +1,4 @@
+export const CONFIG = {
+  BOT_TOKEN: '7769932527:AAFlg1LVjkS_rx6EuTNTOBcVHyA3cHGeW_g',
+  OPENAI_API_KEY: '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'
+}
