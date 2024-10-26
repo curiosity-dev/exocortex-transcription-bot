@@ -57,7 +57,7 @@ bot.on(['message:voice', 'message:audio'], async (ctx) => {
     await ctx.reply(formattingResult.text);
 
     // Считаем и отправляем общую стоимость
-    const totalCost = transcriptionResult.cost + formattingResult.cost;
+    const totalCost = (transcriptionResult.cost + formattingResult.cost) * 1.3; // добавляем 30% комиссию
     const usdRate = await getUSDtoRUBRate();
     const costInRub = totalCost * usdRate;
 
