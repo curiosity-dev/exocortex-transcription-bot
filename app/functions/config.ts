@@ -1,5 +1,7 @@
+import 'dotenv/config'
+
 export const CONFIG = {
-  BOT_TOKEN: '7769932527:AAFlg1LVjkS_rx6EuTNTOBcVHyA3cHGeW_g',
-  OPENAI_API_KEY: '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',
-  PROXY: 'http://user139003:kr9abv@102.129.225.87:8475'
+  BOT_TOKEN: process.env.BOT_TOKEN,
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+  PROXY: process.env.PROXY
 }
